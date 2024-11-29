@@ -7,7 +7,7 @@ calculate the total balance for a given wallet.
 
 # This solution Features:
  - HTTP Server that:
-   - receive a list of wallet transactions that include the transaction type (deposit or withdrawal), wallet address, and amount and calculates the total balance for a given wallet.
+   - receives a list of wallet transactions that include the transaction type (deposit or withdrawal), wallet address, and amount and calculates the total balance for a given wallet.
  - Extensible, self explanatory design.
  - Popular libraries like diesel, tokyo, actix-web or serde.
  - Persistence requires using a containerized PostgreSQL database with minimal initial setup. 
@@ -41,18 +41,17 @@ development.
 
 - Build the project: ```cargo build```
 - Start the app: ```cargo run```
-  - Exposes an HTTP server at ```http://localhost:3693/api
+  - Exposes an HTTP server at ```http://localhost:3693/api```
     - POST     /transactions             > inserts a transaction using the provided JSON model.
     - DELETE   /transactions             > deletes all transactions in the database. 
-    - GET      /{walletAddress}/balance > get the balance of a wallet. 
+    - GET      /{walletAddress}/balance  > get the balance of a wallet. 
   - 
 
 - Test: ```cargo test```
 
 
 Commands:
-- psql -h localhost -U postgres -c ryz 
-- 
+- Directly query the DB: psql -h localhost -U postgres -c ryz 
 
 
 # Insert transactions
