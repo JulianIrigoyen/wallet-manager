@@ -1,0 +1,42 @@
+[package]
+name = "wallet-manager"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+# Error handling
+eyre = "0.6"
+
+# Async runtime and WebSocket support
+tokio = { version = "1", features = ["full", "io-util", "sync", "rt-multi-thread", "macros"] }
+tokio-tungstenite = { version = "*", features = ["native-tls"] }
+
+#JSON support
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+chrono = { version = "0.4", features = ["serde"] }
+
+# WebSocket server utilities
+futures-util = { version = "0.3.28", default-features = false, features = ["sink", "std"] }
+
+# Environment variable management
+dotenv = "0.15.0"
+
+# UUID and logging
+uuid = { version = "1.7.0", features = ["v4", "fast-rng", "macro-diagnostics"] }
+log = "0.4.17"
+env_logger = "0.11.2"
+
+# Web
+actix-web = "4.0"
+actix = "0.13"
+reqwest = { version = "0.11.24", features = ["json", "blocking"] }
+
+
+# DB
+# safe, extensible ORM and query builder for Rust. Diesel allows you to interact with databases in a Rustacean way, focusing on safety and expressiveness. The postgres feature enables support for the PostgreSQL database
+diesel = { version = "2.1.4", features = ["postgres", "r2d2", "serde_json"] }
+r2d2 = "0.8.9"
+bigdecimal = "0.4.2"
+rand = "0.8"
